@@ -1,8 +1,10 @@
 #!/usr/bin/env perl
 
 use MyPath;
-use Log::Any::Adapter ( 'Fille', 'file' => 'file1.log',
-                        'log_level' => 'debug', );
+use Log::Any::Adapter (
+    {category => 'path1'},'Fille', file => 'file1.log', log_level => 'debug',
+);
+
 
 my $app = sub {
     my $env = shift;

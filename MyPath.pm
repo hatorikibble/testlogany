@@ -8,7 +8,8 @@ use Moo;
 
 has log => (
     is => 'ro',
-    default => sub { Log::Any->get_logger },
+     is => 'lazy', # run as late as possible and $self->{name} will exist
+    default => sub { Log::Any->get_logger(category => shift->name); }
 );
 has name => ( is => 'rw');
 
